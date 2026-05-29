@@ -203,25 +203,22 @@ document.addEventListener('DOMContentLoaded', () => {
       erroTexto.style.display = 'none';
       sucessoTexto.style.display = 'none';
 
-      // CONSULTA O LOGIN DIRETAMENTE NO BACKEND (SERVER.JS)
       fetch('http://localhost:3000/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username: userValue, senha: passwordValue })
       })
       .then(res => {
-        if (!res.ok) throw new Error(); // Se der erro de senha/usuário cai no catch
+        if (!res.ok) throw new Error(); 
         return res.json();
       })
       .then(data => {
         if (data.sucesso) {
           sucessoTexto.style.display = 'block';
-          // Redireciona para a página interna principal do app após 1 segundo
           setTimeout(() => { window.location.href = 'index.html'; }, 1000);
         }
       })
       .catch(() => {
-        // Se falhar, ativa as bordas vermelhas e a mensagem clara de erro
         userInput.classList.add('input-error');
         passwordInput.classList.add('input-error');
         erroTexto.style.display = 'block';

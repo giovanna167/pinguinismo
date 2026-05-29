@@ -1,25 +1,37 @@
--- 1. Criação do Banco de Dados
-CREATE DATABASE IF NOT EXISTS PinguinismoDB;
-USE PinguinismoDB;
+-- 1. Criação e seleção do banco de dados oficial do Pinguinismo
+CREATE DATABASE IF NOT EXISTS db_pinguinismo;
+USE db_pinguinismo;
 
--- 2. Tabela de Cadastro para Autistas / Familiares
-CREATE TABLE IF NOT EXISTS TBL_CADASTRO_AUTISTA (
-    ID_AUTISTA INT AUTO_INCREMENT PRIMARY KEY,
-    NOME_COMPLETO VARCHAR(100) NOT NULL,
-    CPF_MASCARADO VARCHAR(14) NOT NULL,
-    IDADE INT NOT NULL,
-    CARTEIRA_CIPTEA VARCHAR(50) NOT NULL UNIQUE,
-    NOME_USUARIO VARCHAR(30) NOT NULL UNIQUE,
-    SENHA_ACESSO VARCHAR(255) NOT NULL
+-- 2. Tabela de Cadastro para Usuários (Autistas / Familiares) - Baseada na sua foto
+CREATE TABLE IF NOT EXISTS Usuarios (
+    id_usuario INT PRIMARY KEY AUTO_INCREMENT,
+    nome_completo VARCHAR(100) NOT NULL,
+    nickname VARCHAR(50) UNIQUE NOT NULL, -- Nome de usuário que começará com usua_
+    numero_ciptea VARCHAR(20) UNIQUE NOT NULL,
+    data_nascimento DATE NOT NULL,
+    senha_acesso VARCHAR(255) NOT NULL, -- Essencial para o login da sua colega funcionar depois
+    cor_tema_preferida VARCHAR(20) DEFAULT '#E3F2FD',
+    data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- 3. Tabela de Cadastro para Especialistas de Saúde
-CREATE TABLE IF NOT EXISTS TBL_CADASTRO_ESPECIALISTA (
-    ID_ESPECIALISTA INT AUTO_INCREMENT PRIMARY KEY,
-    NOME_COMPLETO VARCHAR(100) NOT NULL,
-    CPF VARCHAR(14) NOT NULL,
-    ESPECIALIDADE VARCHAR(50) NOT NULL,
-    IDENTIDADE_PROFISSIONAL VARCHAR(30) NOT NULL UNIQUE,
-    NOME_USUARIO_PROFISSIONAL VARCHAR(50) NOT NULL UNIQUE,
-    SENHA_ACESSO VARCHAR(255) NOT NULL
+-- 3. Tabela de Cadastro para Especialistas de Saúde - Baseada na sua foto
+CREATE TABLE IF NOT EXISTS Especialistas (
+    id_especialista INT PRIMARY KEY AUTO_INCREMENT,
+    nome_social VARCHAR(100) NOT NULL,
+    registro_profissional VARCHAR(30) UNIQUE NOT NULL, -- CRM ou CRP
+    especialidade VARCHAR(50) NOT NULL,
+    senha_acesso VARCHAR(255) NOT NULL, -- Essencial para o login da sua colega
+    bio TEXT,
+    status_verificado TINYINT(1) DEFAULT 0
+);
+
+-- 4. Tabela de Postagens (Para o fórum de vocês)
+CREATE TABLE IF NOT EXISTS Postagens (
+    id_post INT PRIMARY KEY AUTO_INCREMENT,
+    id_usuario INT,
+    titulo_post VARCHAR(100) NOT NULL,
+    conteudo_post TEXT NOT NULL,
+    categoria VARCHAR(30) NOT NULL,
+    data_postagem DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario)
 );

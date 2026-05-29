@@ -204,11 +204,9 @@
     }
 
     function voltarParaLogin() {
-      // Ajuste o nome aqui se o seu arquivo de login se chamar login.html ou index.html
       window.location.href = 'login.html'; 
     }
 
-    // ENVIA OS DADOS DO AUTISTA PARA O SERVIDOR REAL (MYSQL)
     function salvarAutista(event) {
       event.preventDefault();
       const nicknameDigitado = document.getElementById('user-aut').value.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
@@ -240,7 +238,7 @@
       .catch(err => alert('Erro: O servidor server.js está desligado!'));
     }
 
-    // ENVIA OS DADOS DO ESPECIALISTA PARA O SERVIDOR REAL (MYSQL)
+    
     function salvarEspecialista(event) {
       event.preventDefault();
       const nicknameDigitado = document.getElementById('user-esp').value.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
