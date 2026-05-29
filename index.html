@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Penguinismo</title>
+ 
+  <style>
+ 
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+ 
+    body{
+      background-color:#0b0b0b;
+      color:white;
+    }
+ 
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 40px;
+      background:#000;
+    }
+ 
+    .logo{
+      font-size:24px;
+      font-weight:bold;
+      color:#7cc4ff;
+    }
+ 
+    .perfil{
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      background:#555;
+    }
+ 
+    .banner{
+      margin:20px;
+      padding:50px;
+      border-radius:20px;
+      background:linear-gradient(to right,#111,#222);
+    }
+ 
+    .banner h1{
+      font-size:42px;
+      margin-bottom:10px;
+    }
+ 
+    .banner p{
+      color:#aaa;
+      margin-bottom:20px;
+    }
+ 
+    .banner button{
+      padding:12px 25px;
+      border:none;
+      border-radius:20px;
+      background:#1e90ff;
+      color:white;
+      cursor:pointer;
+      font-weight:bold;
+    }
+ 
+    .catalogo{
+      padding:20px;
+    }
+ 
+    .catalogo h2{
+      margin-bottom:20px;
+    }
+ 
+    .cards{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+ 
+    .card{
+      width:300px;
+      background:#151515;
+      border-radius:20px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+ 
+    .card:hover{
+      transform:scale(1.03);
+    }
+ 
+    .card img{
+      width:100%;
+      height:180px;
+      object-fit:cover;
+    }
+ 
+    .card-content{
+      padding:15px;
+    }
+ 
+    .card h3{
+      margin-bottom:10px;
+    }
+ 
+    .card p{
+      color:#aaa;
+      font-size:14px;
+    }
+ 
+    footer{
+      position:fixed;
+      bottom:0;
+      width:100%;
+      background:#000;
+      display:flex;
+      justify-content:space-around;
+      padding:15px;
+    }
+ 
+    footer button{
+      background:none;
+      border:none;
+      color:white;
+      cursor:pointer;
+      font-size:16px;
+    }
+ 
+  </style>
+</head>
+<body>
+ 
+  <header>
+    <div class="perfil"><img src="img/an_edit_of_the_penguin_character_image._change_the_text_penguin_on_the_id_badge (1).png" style="width:100%; height:100%; border-radius:50%; object-fit:cover;"></div>
+  </header>
+ 
+  <section class="banner">
+    <h1>Bem-vindo ao seu refúgio</h1>
+    <p>
+      Explore seus hiperfocos em um ambiente calmo e organizado.
+    </p>
+ 
+    <button onclick="mensagem()">
+      Descobrir mais
+    </button>
+  </section>
+ 
+  <section class="catalogo">
+ 
+    <h2>Catálogo de Hiperfocos</h2>
+ 
+    <div class="cards">
+ 
+      <div class="card">
+        <img src="https://uploads.jovemnerd.com.br/wp-content/uploads/2023/10/fnaf_easter_eggs_capa__6cmzyjnrl.jpg">
+ 
+        <div class="card-content">
+          <h3>Jogos de Terror</h3>
+ 
+          <p>
+            Explore teorias, lore e mistérios.
+          </p>
+        </div>
+      </div>
+ 
+      <div class="card">
+        <img src="https://pbs.twimg.com/media/Gi9plL7WIAA62Q0.jpg">
+ 
+        <div class="card-content">
+          <h3>Sonic</h3>
+ 
+          <p>
+            Velocidade, jogos e personagens clássicos.
+          </p>
+        </div>
+      </div>
+ 
+    </div>
+ 
+  </section>
+ 
+  <footer>
+    <button>Home</button>
+    <button>Comunidade</button>
+    <button>Explorar</button>
+    <button>Perfil</button>
+  </footer>
+ 
+  <script>
+ 
+    function mensagem(){
+      alert("Bem-vindo ao Penguinismo!");
+    }
+ 
+  </script>
+ 
+</body>
+</html>
