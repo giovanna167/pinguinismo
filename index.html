@@ -6,197 +6,459 @@
   <title>Penguinismo</title>
  
   <style>
- 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
       font-family: Arial, Helvetica, sans-serif;
     }
- 
-    body{
-      background-color:#0b0b0b;
-      color:white;
+
+    body {
+      background-color: #0b0b0b;
+      color: white;
+      padding-bottom: 80px;
     }
- 
-    header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:20px 40px;
-      background:#000;
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background: #000;
+      border-bottom: 1px solid #222;
     }
- 
-    .logo{
-      font-size:24px;
-      font-weight:bold;
-      color:#7cc4ff;
+
+    .perfil-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
     }
- 
-    .perfil{
-      width:40px;
-      height:40px;
-      border-radius:50%;
-      background:#555;
+
+    .perfil {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #555;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
     }
- 
-    .banner{
-      margin:20px;
-      padding:50px;
-      border-radius:20px;
-      background:linear-gradient(to right,#111,#222);
+
+    /* ESTILOS DA HOME */
+    .banner {
+      margin: 20px;
+      padding: 50px;
+      border-radius: 20px;
+      background: linear-gradient(to right, #111, #222);
     }
- 
-    .banner h1{
-      font-size:42px;
-      margin-bottom:10px;
+
+    .banner h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
     }
- 
-    .banner p{
-      color:#aaa;
-      margin-bottom:20px;
+
+    .banner p {
+      color: #aaa;
+      margin-bottom: 20px;
     }
- 
-    .banner button{
-      padding:12px 25px;
-      border:none;
-      border-radius:20px;
-      background:#1e90ff;
-      color:white;
-      cursor:pointer;
-      font-weight:bold;
+
+    .banner button {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 20px;
+      background: #1e90ff;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
     }
- 
-    .catalogo{
-      padding:20px;
+
+    .catalogo {
+      padding: 20px;
     }
- 
-    .catalogo h2{
-      margin-bottom:20px;
+
+    .catalogo h2 {
+      margin-bottom: 20px;
     }
- 
-    .cards{
-      display:flex;
-      gap:20px;
-      flex-wrap:wrap;
+
+    .cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
     }
- 
-    .card{
-      width:300px;
-      background:#151515;
-      border-radius:20px;
-      overflow:hidden;
-      transition:0.3s;
+
+    .card {
+      width: 300px;
+      background: #151515;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: 0.3s;
+      border: 1px solid #222;
     }
- 
-    .card:hover{
-      transform:scale(1.03);
+
+    .card:hover {
+      transform: scale(1.03);
     }
- 
-    .card img{
-      width:100%;
-      height:180px;
-      object-fit:cover;
+
+    .card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      cursor: pointer;
     }
- 
-    .card-content{
-      padding:15px;
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
     }
- 
-    .card h3{
-      margin-bottom:10px;
+
+    .card-content {
+      padding: 15px;
     }
- 
-    .card p{
-      color:#aaa;
-      font-size:14px;
+
+    .card h3 {
+      margin-bottom: 10px;
     }
- 
-    footer{
-      position:fixed;
-      bottom:0;
-      width:100%;
-      background:#000;
-      display:flex;
-      justify-content:space-around;
-      padding:15px;
+
+    .card p {
+      color: #aaa;
+      font-size: 14px;
     }
- 
-    footer button{
-      background:none;
-      border:none;
-      color:white;
-      cursor:pointer;
-      font-size:16px;
+
+    /* ESTILO REDDIT PARA A ABA MÚSICA */
+    .community-banner {
+      width: 100%;
+      height: 180px;
+      background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1200&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
     }
- 
+
+    .community-header {
+      padding: 0 40px 20px 40px;
+      background-color: #0e0e0e;
+      border-bottom: 1px solid #222;
+    }
+
+    .community-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      position: relative;
+      margin-top: -30px;
+    }
+
+    .community-title-box {
+      display: flex;
+      align-items: flex-end;
+      gap: 15px;
+    }
+
+    .community-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 4px solid #0e0e0e;
+      object-fit: cover;
+      background: #151515;
+    }
+
+    .community-title h1 {
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .community-title p {
+      color: #888;
+      font-size: 14px;
+    }
+
+    .community-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-postar {
+      background: transparent;
+      border: 1px solid #fff;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .btn-postar:hover {
+      background: #222;
+    }
+
+    .btn-unirse {
+      background: white;
+      border: none;
+      color: black;
+      padding: 8px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .feed-container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    .post-card {
+      background: #151515;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+      border: 1px solid #222;
+    }
+
+    .post-header {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 10px;
+    }
+
+    .post-header span {
+      color: white;
+      font-weight: bold;
+    }
+
+    .post-title {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .post-content {
+      color: #ccc;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .post-footer {
+      display: flex;
+      gap: 15px;
+      font-size: 13px;
+      color: #888;
+    }
+
+    /* REGRAS DAS ABAS */
+    .aba-conteudo {
+      display: none;
+    }
+
+    .aba-conteudo.active {
+      display: block !important;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #000;
+      display: flex;
+      justify-content: space-around;
+      padding: 15px;
+      z-index: 100;
+      border-top: 1px solid #222;
+    }
+
+    footer button {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    footer button.active {
+      color: #7cc4ff;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
  
   <header>
-    <div class="perfil"><img src="img/an_edit_of_the_penguin_character_image._change_the_text_penguin_on_the_id_badge (1).png" style="width:100%; height:100%; border-radius:50%; object-fit:cover;"></div>
-  </header>
- 
-  <section class="banner">
-    <h1>Bem-vindo ao seu refúgio</h1>
-    <p>
-      Explore seus hiperfocos em um ambiente calmo e organizado.
-    </p>
- 
-    <button onclick="mensagem()">
-      Descobrir mais
+    <div style="font-weight: bold; color: #7cc4ff; font-size: 20px;">Penguinismo</div>
+    <button class="perfil-btn" onclick="mudarAba('aba-perfil')">
+      <div class="perfil">P</div>
     </button>
-  </section>
- 
-  <section class="catalogo">
- 
-    <h2>Catálogo de Hiperfocos</h2>
- 
-    <div class="cards">
- 
-      <div class="card">
-        <img src="https://uploads.jovemnerd.com.br/wp-content/uploads/2023/10/fnaf_easter_eggs_capa__6cmzyjnrl.jpg">
- 
-        <div class="card-content">
-          <h3>Jogos de Terror</h3>
- 
-          <p>
-            Explore teorias, lore e mistérios.
-          </p>
+  </header>
+
+  <!-- ================= ABA 1: HOME (COM TODOS OS CARDS) ================= -->
+  <main id="aba-home" class="aba-conteudo active">
+    <section class="banner">
+      <h1>Bem-vindo</h1>
+      <p>Explore os fóruns de discussões e compartilhe experiências.</p>
+      <button onclick="alert('Bem-vindo ao Penguinismo!')">Descobrir mais</button>
+    </section>
+   
+    <section class="catalogo">
+      <h2>Catálogo de Fóruns</h2>
+      <div class="cards">
+   
+        <!-- CARD 1 -->
+        <a class="card-link">
+          <div class="card">
+            <img src="https://uploads.jovemnerd.com.br/wp-content/uploads/2023/10/fnaf_easter_eggs_capa__6cmzyjnrl.jpg">
+            <div class="card-content">
+              <h3>Jogos de Terror</h3>
+              <p>Explore teorias, lore e mistérios.</p>
+            </div>
+          </div>
+        </a>
+   
+        <!-- CARD 2 -->
+        <a class="card-link">
+          <div class="card">
+            <img src="https://i.pinimg.com/474x/f2/1f/e8/f21fe8883afa9c320ab1677dd4614f76.jpg">
+            <div class="card-content">
+              <h3>Sonic</h3>
+              <p>Velocidade, jogos e personagens clássicos.</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- CARD 3 -->
+        <a class="card-link">
+          <div class="card">
+            <img src="https://m.media-amazon.com/images/S/pv-target-images/7415dbb66cb1dae50df753a32754244643437e94c1a5519f0cd16e0713fb3800.jpg">
+            <div class="card-content">
+              <h3>Desenhos</h3>
+              <p>Fórum para debater e descobrir desenhos.</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- CARD 4 -->
+        <a class="card-link">
+          <div class="card">
+            <img src="https://www.ufsm.br/app/uploads/2026/03/arte.jpg">
+            <div class="card-content">
+              <h3>Dinossauros</h3>
+              <p>Espécies, categorias e tudo sobre Paleontologia.</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- CARD 5 -->
+        <a class="card-link">
+          <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoNTPLK33c0_rdhaL07Ia5zTm8avwX0hJuZbGPrqWs0pRz5ZZ7sFbdVnZb&s=10">
+            <div class="card-content">
+              <h3>Busologia</h3>
+              <p>Velocidade, modelos, motores e tudo relacionado a ônibus.</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- CARD 6 (MÚSICA - REDIRECIONA PARA A ABA MÚSICA) -->
+        <a class="card-link" onclick="mudarAba('aba-musica')">
+          <div class="card">
+            <img src="https://thumbs.dreamstime.com/b/gatinho-e-cachorro-ouvem-m%C3%BAsica-nos-fones-de-ouvido-pequeno-c%C3%A3o-ouve-canta-em-fundo-branco-isolando-focinho-conceito-dispositivo-211803171.jpg">
+            <div class="card-content">
+              <h3>Música</h3>
+              <p>Todos os gêneros, cantores, letras e instrumentos do seu gosto.</p>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= ABA 2: MÚSICA (ESTILO REDDIT) ================= -->
+  <main id="aba-musica" class="aba-conteudo">
+    <div class="community-banner"></div>
+
+    <div class="community-header">
+      <div class="community-info">
+        <div class="community-title-box">
+          <img class="community-icon" src="https://thumbs.dreamstime.com/b/gatinho-e-cachorro-ouvem-m%C3%BAsica-nos-fones-de-ouvido-pequeno-c%C3%A3o-ouve-canta-em-fundo-branco-isolando-focinho-conceito-dispositivo-211803171.jpg" alt="Ícone Música">
+          <div class="community-title">
+            <h1>r/Musica</h1>
+            <p>p/musica • 12.4k membros</p>
+          </div>
+        </div>
+
+        <div class="community-actions">
+          <button class="btn-postar" onclick="alert('Criar nova postagem')">+ Postar</button>
+          <button class="btn-unirse" onclick="alert('Você entrou na comunidade!')">Unir-se</button>
         </div>
       </div>
- 
-      <div class="card">
-        <img src="https://pbs.twimg.com/media/Gi9plL7WIAA62Q0.jpg">
- 
-        <div class="card-content">
-          <h3>Sonic</h3>
- 
-          <p>
-            Velocidade, jogos e personagens clássicos.
-          </p>
-        </div>
-      </div>
- 
     </div>
- 
-  </section>
- 
+
+    <div class="feed-container">
+      <div class="post-card">
+        <div class="post-header"><span>u/PenguinFan</span> • há 2 horas</div>
+        <h2 class="post-title">Qual é o melhor álbum de rock dos anos 90?</h2>
+        <p class="post-content">Estava escutando Nevermind e OK Computer hoje. Qual o preferido de vocês?</p>
+        <div class="post-footer">
+          <span>💬 42 Comentários</span>
+          <span>⬆ 128 Votos</span>
+        </div>
+      </div>
+    </div>
+
+
+     <div class="feed-container">
+      <div class="post-card">
+        <div class="post-header"><span>u/NikkiSixxFan</span> • há 1 dia</div>
+        <h2 class="post-title">O que vocês acham sobre a polêmica dos policiais disfarçados e o Nikki Sixx em 80?</h2>
+        <p class="post-content">Estava revendo algumas das maiores polêmicas dele e fiquei em duvida dessa. Por que ele foi preso se estava ajudando as garotas? Os policiais receberam punição?</p>
+        <div class="post-footer">
+          <span>💬 56 Comentários</span>
+          <span>⬆ 200 Votos</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- DEMAIS ABAS -->
+  <main id="aba-comunidade" class="aba-conteudo">
+    <div style="padding: 40px; text-align: center;"><h2>Aba Comunidade</h2></div>
+  </main>
+
+  <main id="aba-explorar" class="aba-conteudo">
+    <div style="padding: 40px; text-align: center;"><h2>Aba Explorar</h2></div>
+  </main>
+
+  <main id="aba-perfil" class="aba-conteudo">
+    <div style="padding: 40px; text-align: center;"><h2>Seu Perfil</h2></div>
+  </main>
+
+  <!-- RODAPÉ FIXO (SEM O BOTÃO MÚSICA) -->
   <footer>
-    <button>Home</button>
-    <button>Comunidade</button>
-    <button>Explorar</button>
-    <button>Perfil</button>
+    <button class="btn-aba active" onclick="mudarAba('aba-home', this)">Home</button>
+    <button class="btn-aba" onclick="mudarAba('aba-comunidade', this)">Comunidade</button>
+    <button class="btn-aba" onclick="mudarAba('aba-explorar', this)">Explorar</button>
+    <button class="btn-aba" onclick="mudarAba('aba-perfil', this)">Perfil</button>
   </footer>
- 
+
   <script>
- 
-    function mensagem(){
-      alert("Bem-vindo ao Penguinismo!");
+    function mudarAba(idAba, elementoClicado) {
+      const abas = document.querySelectorAll('.aba-conteudo');
+      abas.forEach(aba => aba.classList.remove('active'));
+
+      const botoes = document.querySelectorAll('.btn-aba');
+      botoes.forEach(btn => btn.classList.remove('active'));
+
+      const abaAtiva = document.getElementById(idAba);
+      if (abaAtiva) {
+        abaAtiva.classList.add('active');
+      }
+
+      if (elementoClicado && elementoClicado.classList.contains('btn-aba')) {
+        elementoClicado.classList.add('active');
+      }
     }
- 
   </script>
- 
 </body>
 </html>
